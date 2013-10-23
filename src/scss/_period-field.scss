@@ -1,0 +1,39 @@
+@import "ember-text-field/src/scss/text-field";
+
+@mixin period-field {
+    .period-field {
+        @include text-input-style;
+        cursor: pointer;
+        position: relative;
+        padding-top: 0px;
+        padding-bottom: 0px;
+        line-height: $field-height - 2*1px;
+        padding-right: $field-picker-width + $field-padding*2;
+        
+        .input-value {
+            white-space: nowrap;
+            overflow-x: hidden;
+        }
+        
+        .picker {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            padding: 0px $field-padding;
+            width: $field-picker-width + $field-padding*2;
+            height: $field-height;
+            
+            .svg-main {
+                fill: $gray;
+            }
+        }
+    
+        &:hover {
+            .picker {
+                .svg-main {
+                    fill: $blue;
+                }
+            }
+        }
+    }
+}
