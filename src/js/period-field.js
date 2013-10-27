@@ -20,7 +20,14 @@ module.exports = Em.Component.extend(PeriodFieldMixin, {
         return s.join(' ');
     }.property('width'),
 
-    inputValue: Em.computed.alias('value.name')
+    inputValue: function() {
+        var value = this.get('value');
+        if (value) {
+            return value.get('name');
+        } else {
+            return t('period_selector.all');
+        }
+    }.property('value.name')
 });
 
 module.exports.PeriodFieldMixin = PeriodFieldMixin;
