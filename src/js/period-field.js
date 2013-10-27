@@ -1,6 +1,8 @@
 var PeriodFieldMixin = require('./period-field-mixin');
 
 module.exports = Em.Component.extend(PeriodFieldMixin, {
+    template: require('../templates/period-field'),
+    
     attributeBindings: ['style'],
     
     classNames: ['period-field'],
