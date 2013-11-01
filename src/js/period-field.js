@@ -32,3 +32,5 @@ module.exports = Em.Component.extend(PeriodFieldMixin, {
 });
 
 module.exports.PeriodFieldMixin = PeriodFieldMixin;
+
+moduel.exports.lang = i18n.lang;
