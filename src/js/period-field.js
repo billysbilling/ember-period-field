@@ -1,4 +1,5 @@
-var PeriodFieldMixin = require('./period-field-mixin');
+var i18n = require('i18n').module('ember_period_field', require.resolve('../locales')),
+    PeriodFieldMixin = require('./period-field-mixin');
 
 module.exports = Em.Component.extend(PeriodFieldMixin, {
     template: require('../templates/period-field'),
@@ -25,7 +26,7 @@ module.exports = Em.Component.extend(PeriodFieldMixin, {
         if (value) {
             return value.get('name');
         } else {
-            return t('period_selector.all');
+            return i18n.t('all_time');
         }
     }.property('value.name')
 });
