@@ -1,4 +1,5 @@
-var i18n = require('i18n').module('ember_period_field', require.resolve('../locales')),
+var i18nContext = require('i18n-context')('ember_period_field', require.resolve('../locales')),
+    t = i18nContext.t,
     PeriodFieldMixin = require('./period-field-mixin');
 
 module.exports = Em.Component.extend(PeriodFieldMixin, {
@@ -26,11 +27,16 @@ module.exports = Em.Component.extend(PeriodFieldMixin, {
         if (value) {
             return value.get('name');
         } else {
-            return i18n.t('all_time');
+            return t('all_time');
         }
     }.property('value.name')
 });
 
 module.exports.PeriodFieldMixin = PeriodFieldMixin;
 
-module.exports.lang = i18n.lang;
+module.exports.locale = i18nContext.locale;
+
+module.exports.lang = function() {
+    console.warn('.lang() is deprecated. Use .locale() instead');
+    return i18nContext.locale.apply(null, arguments);
+};
