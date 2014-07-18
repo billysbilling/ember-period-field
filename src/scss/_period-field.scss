@@ -9,25 +9,27 @@
         padding-bottom: 0px;
         line-height: $field-height - 2*1px;
         padding-right: $field-picker-width + $field-padding*2;
-        
+
         .input-value {
             white-space: nowrap;
             overflow-x: hidden;
         }
-        
+
         .picker {
+            $picker-padding: ($field-height - $field-picker-width)/2;
             position: absolute;
             top: 0px;
             right: 0px;
-            padding: 0px $field-padding;
-            width: $field-picker-width + $field-padding*2;
+            padding: 0px $picker-padding;
+            width: $field-picker-width + $picker-padding*2;
             height: $field-height;
-            
+            @include display-inline-flex;
+
             .svg-main {
-                fill: $gray;
+                fill: $blue-gray;
             }
         }
-    
+
         &:hover {
             .picker {
                 .svg-main {
